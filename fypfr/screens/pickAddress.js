@@ -1,24 +1,26 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Window from './Width';
 
 // create a component
 const PickAddress = ({ pText, fetchAddress }) => {
+  
 
     const onPressAddress = (data, details) => {
         const lat = details.geometry.location.lat;
         const lng = details.geometry.location.lng;
-        fetchAddress(lat, lng);
-        console.log("data is --> ",data);
+        fetchAddress(lat, lng, data.description);
+        // console.log("data is --> ",data);
         
     }
 
   return (
     <View style={styles.container}>
+
       <GooglePlacesAutocomplete
-        placeholder={pText}
+        placeholder=""
         onPress={onPressAddress}
         fetchDetails = {true}
         

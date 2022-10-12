@@ -85,7 +85,7 @@ export default function Login({navigation}) {
           </TouchableOpacity>
         </View>
         <View style={styles.btnCont}>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn} onPress={() => navigation.push('MyDrawer')}>
             {load ? (
               <ActivityIndicator size="large" color="#fff" />
             ) : (

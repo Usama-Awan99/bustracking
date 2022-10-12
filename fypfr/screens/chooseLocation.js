@@ -10,6 +10,8 @@ import DropDownPicker from 'react-native-dropdown-picker';
 const ChooseLocation = ({navigation}) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
+  const [pick, setPick] = useState('');
+  const [drop, setdrop] = useState('');
   const [items, setItems] = useState([
     { label: '11:15', value: '11:15' },
     // { label: '13:00', value: '13:00' },
@@ -22,7 +24,7 @@ const ChooseLocation = ({navigation}) => {
   })
 
 
-  const fetchAddressCords = (lat, lng) => {
+  const fetchAddressCords = (lat, lng,locations) => {
     // console.log("latitude: ",lat);
     // console.log("longitude: ",lng);
     setState({ 
@@ -31,8 +33,9 @@ const ChooseLocation = ({navigation}) => {
         longitude: lng
       }
     })
+    setPick(locations);
   }
-  const fetchDestinationCords = (lat, lng) => {
+  const fetchDestinationCords = (lat, lng, locations) => {
     // console.log("latitude: ",lat);
     // console.log("longitude: ",lng);
     setState({ 
@@ -41,6 +44,7 @@ const ChooseLocation = ({navigation}) => {
         longitude: lng
       }
     })
+    setdrop(locations);
   }
 
   const { pickupCords, droplocationCords } = state;
@@ -58,8 +62,10 @@ const ChooseLocation = ({navigation}) => {
           paddingHorizontal: 10,
         }}
       >
-        <PickAddress fetchAddress={fetchAddressCords} pText="From" />
-        <PickAddress fetchAddress={fetchDestinationCords} pText="To" />
+        <Text style={{marginLeft:10,fontSize:22,color:'#fff'}}>From:</Text>
+        <View><Text style={{position: "absolute",zIndex:999,top:20,left:15,fontSize:18,}}>{pick}</Text><PickAddress fetchAddress={fetchAddressCords} pText="From" /></View>
+        <Text style={{marginLeft:10,fontSize:22,color:'#fff'}}>To:</Text>
+        <View><Text style={{position: "absolute",zIndex:999,top:20,left:15,fontSize:18,}}>{drop}</Text><PickAddress fetchAddress={fetchDestinationCords} pText="To" /></View>
         <View>
           {/* <DropDownPicker
             open={open}
