@@ -11,6 +11,7 @@ const PickAddress = ({ pText, fetchAddress }) => {
         const lat = details.geometry.location.lat;
         const lng = details.geometry.location.lng;
         fetchAddress(lat, lng);
+        console.log("data is --> ",data);
         
     }
 

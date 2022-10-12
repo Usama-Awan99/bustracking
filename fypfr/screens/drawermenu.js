@@ -2,7 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 // import Local Files Here
 import Dashboard from './Dash';
-import Login from './Login';
+import Driver from './Driver';
 import Window from './Width';
 import CustomDrawer from './CustomDrawer';
 import {Ionicons} from '@expo/vector-icons';
@@ -40,7 +40,7 @@ function MyDrawer() {
           }}
           
       />
-      <Drawer.Screen name="Login" component={Login} />
+      <Drawer.Screen name="Driver" component={Driver} options={{title: "Driver Mode"}} />
     </Drawer.Navigator>
   );
 }
