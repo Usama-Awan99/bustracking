@@ -14,6 +14,7 @@ import Route from './screens/directions';
 import PickSeat from './screens/seatsavailable';
 import BusAvailable from './screens/bus';
 import MyDrawer from './screens/drawermenu';
+import Start from './screens/startsc';
 
 const Stack = createStackNavigator();
 
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MyDrawer"
+        initialRouteName="Start"
         screenOptions={{
           headerStyle: {
             backgroundColor: Window.dark,
@@ -31,14 +32,19 @@ const App = () => {
         }}
       >
         <Stack.Screen
+          name="Start"
+          component={Start}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
-          screenOptions={{ headerShown: false }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="SignUp"
           component={SignUp}
-          screenOptions={{ headerShown: false }}
+          options={{ headerShown: false }}
         />
         {/* <Stack.Screen
           name="Dashboard"

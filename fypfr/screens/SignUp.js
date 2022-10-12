@@ -5,7 +5,7 @@ import Window from './Width';
 import { FontAwesome } from '@expo/vector-icons';
 
 // create a component
-const SignUp = () => {
+const SignUp = ({navigation}) => {
     const [uname, setname] = useState('');
     const [mble, setmble] = useState('');
     const [email, setemail] = useState('');
@@ -110,7 +110,7 @@ const SignUp = () => {
         </TouchableOpacity>
         <View style={styles.end}>
             <Text>Have an Account?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Text style={{color: '#fff',fontSize:18, marginLeft:10}}>Sign In</Text>
             </TouchableOpacity>
         </View>

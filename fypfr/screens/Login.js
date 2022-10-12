@@ -12,7 +12,7 @@ import {
 import Window from './Width';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function Login() {
+export default function Login({navigation}) {
   const [secure, setsecure] = useState(true);
   const [uname, setuname] = useState('');
   const [pass, setpass] = useState('');
@@ -36,7 +36,7 @@ export default function Login() {
           <View style={styles.input}>
             <TextInput
               style={styles.fields}
-              placeholder="Your Email"
+              placeholder="Phone no"
               placeholderTextColor="lightgray"
               value={uname}
               onChangeText={(el) => setuname(el)}
@@ -97,7 +97,7 @@ export default function Login() {
           <Text>Not Have an Account?</Text>
           <TouchableOpacity
             style={styles.upbtn}
-            onPress={() => navigation.push('OneTimePassword')}
+            onPress={() => navigation.push('SignUp')}
           >
             <Text style={styles.upBtn}>Sign Up</Text>
           </TouchableOpacity>
